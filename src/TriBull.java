@@ -1,6 +1,6 @@
 public class TriBull {
 
-    static int[] tri_a_bulles(int A[])
+    static int[] triBulle(int A[])
     {
         int  temp;
         for(int i = A.length-1 ; i>=1 ; i--)

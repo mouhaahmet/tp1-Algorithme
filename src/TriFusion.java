@@ -1,10 +1,10 @@
 public class TriFusion {
-    static int[] tri_a_fusion(int[] A , int p , int r)
+    static int[] triFusion(int[] A , int p , int r)
     {
         if (p < r){
             int q = (p+r)/2;
-            tri_a_fusion(A,p,q);
-            tri_a_fusion(A,q+1,r);
+            triFusion(A,p,q);
+            int[] ints = triFusion(A, q + 1, r);
             Fusion(A,p,q,r);
         }
 

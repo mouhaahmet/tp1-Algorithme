@@ -1,6 +1,6 @@
 public class TriInsertion {
 
-    static int[] tri_a_insertion(int[] t)
+    static int[] triInsertion(int[] t)
     {
         for (int j = 1; j <= t.length; j++)
         {
