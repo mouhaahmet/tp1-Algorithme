@@ -3,7 +3,6 @@ import java.util.Random;
 public class GenerateNumber {
     int borneInf;
     int borneSup;
-
     public GenerateNumber(int borneInf, int borneSup){
         this.borneInf=borneInf;
         this.borneSup=borneSup;
