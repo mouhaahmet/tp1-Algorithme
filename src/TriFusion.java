@@ -1,42 +1,53 @@
 public class TriFusion {
-    static int[] triFusion(int[] A , int p , int r)
+    public static int[] triFusion (int [] tab, int début, int fin)
     {
-        if (p < r){
-            int q = (p+r)/2;
-            triFusion(A,p,q);
-            int[] ints = triFusion(A, q + 1, r);
-            Fusion(A,p,q,r);
+        int milieu;
+        if(début < fin)
+        {
+            milieu = (début+fin) / 2;
+            triFusion(tab, début, milieu);
+            triFusion(tab, milieu + 1, fin);
+            fusionner (tab, début, milieu, fin);
         }
-
-        return A;
+        return tab;
     }
 
-    private static void Fusion(int[] A, int p, int q, int r) {
-        int n = q-p+1;
-        int m = r-q;
-        int i =0 ;
-        int j = 0 ;
-        int[] tableau1 = new int[n];
-        int[] tableau2 = new int[m];
-        for ( i = 0 ; i < n ; i++)
-            tableau1[i] = A[p + i - 1];
-        for ( j = 0 ; j < m ; j++)
-            tableau2[j] = A[q + j];
-        for (int k = p ; k < r ; k++){
-            if (tableau1[i] <= tableau2[j]){
-                A[k]=tableau1[i];
-                i=i+1;
-            }
-            else {
-                A[k]=tableau2[j];
-                j=j+1;
-            }
+    public static void fusionner (int tab[], int début, int milieu, int fin)
+    {
+        int [] tab_initiale = (int[]) tab.clone();
 
+        int i1 = début; //indice dans la première moitié de tab_initiale
+        int i2 = milieu + 1; // indice dans la deuxième moitié de tab_initiale
+        int i = début; //indice dans le tableau tab
 
+        while (i1 <= milieu && i2 <= fin)
+        {
+            if(tab_initiale[i1] <= tab_initiale[i2])
+            {
+                tab[i] = tab_initiale[i1];
+                i1++;
+            }
+            else
+            {
+                tab[i] = tab_initiale[i2];
+                i2++;
+            }
+            i++;
         }
-
-
-
-
+        if (i <= fin)
+        {
+            while(i1 <= milieu)  // le reste de la première moitié
+            {
+                tab[i] = tab_initiale[i1];
+                i1++;
+                i++;
+            }
+            while(i2 <= fin) // le reste de la deuxième moitié
+            {
+                tab[i] = tab_initiale[i2];
+                i2++;
+                i++;
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 public class TriRapide {
-    static int[] triRapide(int[] A, int p, int r) {
-        if (p < r) {
-            int q = partition(A, p, r);
-            triRapide(A, p, q - 1);
+    static int[] triRapide(int[] A, int debut, int r) {
+        if (debut < r) {
+            int q = partition(A, debut, r);
+            triRapide(A, debut, q - 1);
             triRapide(A, q + 1, r);
         }
 
